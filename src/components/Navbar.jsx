@@ -55,7 +55,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
           </div>
 
           {/* Desktop Nav */}
-          {/* Desktop Nav – CENTER */}
 <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
   {navLinks.map((link) => {
     const Icon = link.icon;
@@ -107,7 +106,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
           {/* Mobile Right Controls */}
           <div className="flex items-center gap-3 md:hidden ml-auto ">
             {/* Dark mode always visible */}
-            <button onClick={() => setDarkMode(!darkMode)}>
+            <button onClick={() => setDarkMode(!darkMode)} className={darkMode ? "text-white" : "text-gray-600"}>
               {darkMode ? <Sun size={22} /> : <Moon size={22} />}
             </button>
 
@@ -123,46 +122,30 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
       {/* Mobile Menu */}
       {open && (
-        <div
-          className={`md:hidden px-6 py-4 space-y-4 ${
-            darkMode ? "bg-[#1a1f3a]" : "bg-white"
-          }`}
+  <div
+    className={`md:hidden px-6 py-4 space-y-4 ${
+      darkMode ? "bg-[#1a1f3a]" : "bg-white"
+    }`}
+  >
+    {navLinks.map((link) => {
+      const Icon = link.icon;
+      return (
+        <a
+          key={link.href}
+          href={link.href}
+          onClick={() => setOpen(false)}
+          className={`flex items-center gap-3 text-sm 
+            ${darkMode ? "text-white hover:text-yellow-400" : "text-gray-800 hover:text-yellow-600"}
+          `}
         >
-          {navLinks.map((link) => {
-            const Icon = link.icon;
-            return (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="flex items-center gap-3 text-sm text-white hover:text-yellow-400"
-              >
-                <Icon size={18} />
-                {link.label}
-              </a>
-            );
-          })}
+          <Icon size={18} />
+          {link.label}
+        </a>
+      );
+    })}
+  </div>
+)}
 
-          <div className="hidden md:flex gap-4 pt-4 border-t">
-            <a
-              href="https://github.com/thesachin07"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={darkMode ? "text-white" : "text-gray-600"}
-            >
-              <Github size={22} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/thesachin07/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={darkMode ? "text-white" : "text-gray-600"}
-            >
-              <Linkedin size={22} />
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
+          </nav>
   );
 }
