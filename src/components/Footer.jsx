@@ -40,7 +40,7 @@ export default function Footer({ darkMode }) {
               </span>
             </div>
             <p className={`text-sm mb-6 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-              Senior Software Engineer passionate about building exceptional digital experiences.
+              Frontend Engineer passionate about building exceptional digital experiences.
             </p>
             <div className="flex gap-4">
               <a
