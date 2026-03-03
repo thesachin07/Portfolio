@@ -27,7 +27,6 @@ export default function ProjectsSection({ darkMode }) {
       category: 'web',
       github: 'https://github.com/thesachin07/UI-design',
       demo: 'https://test-ui-c1a2.vercel.app/',
-      // stars: 189,
     },
     {
       id: 3,
@@ -38,7 +37,6 @@ export default function ProjectsSection({ darkMode }) {
       category: 'web',
       github: 'https://github.com/thesachin07/quiz',
       demo: 'https://quiz-git-main-sachins-projects-1991415b.vercel.app/',
-      // stars: 312,
     },
     
   ];
@@ -61,7 +59,7 @@ export default function ProjectsSection({ darkMode }) {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            Featured <span className="text-yellow-400">Projects</span>
+            Featured <span className="text-[#D4AF37]">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6"></div>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
@@ -69,7 +67,6 @@ export default function ProjectsSection({ darkMode }) {
           </p>
         </div>
 
-        {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
             <button
@@ -88,7 +85,6 @@ export default function ProjectsSection({ darkMode }) {
           ))}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <div
@@ -96,7 +92,7 @@ export default function ProjectsSection({ darkMode }) {
               className={`group rounded-xl overflow-hidden ${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-sm border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Project Image */}
+
               <div className="relative h-48 bg-gradient-to-br overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center text-white text-6xl font-bold ">
                   {project.image ? (
@@ -105,13 +101,8 @@ export default function ProjectsSection({ darkMode }) {
                     'No Image'
                   )}
                 </div>
-                {/* <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 bg-black/50 backdrop-blur-sm rounded-full">
-                  <Star className="text-yellow-400 fill-yellow-400" size={16} />
-                  <span className="text-white text-sm font-semibold">{project.stars}</span>
-                </div> */}
               </div>
-
-              {/* Project Content */}
+              
               <div className="p-6">
                 <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   {project.title}
@@ -120,7 +111,6 @@ export default function ProjectsSection({ darkMode }) {
                   {project.description}
                 </p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, i) => (
                     <span
@@ -132,7 +122,6 @@ export default function ProjectsSection({ darkMode }) {
                   ))}
                 </div>
 
-                {/* Links */}
                 <div className="flex gap-4">
                   <a
                     href={project.github}
@@ -158,7 +147,6 @@ export default function ProjectsSection({ darkMode }) {
           ))}
         </div>
 
-        {/* View More Button */}
         <div className="text-center mt-12">
           <a
             href="https://github.com/thesachin07/"
