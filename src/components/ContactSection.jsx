@@ -67,7 +67,7 @@ export default function ContactSection({ darkMode }) {
         {/* Section Header */}
         <div className="text-center mb-16 animate-fadeIn">
           <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-            Get In <span className="text-yellow-400">Touch</span>
+            Get In <span className="text-[#D4AF37]">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6"></div>
           <p className={`text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
@@ -87,7 +87,6 @@ export default function ContactSection({ darkMode }) {
               </p>
             </div>
 
-            {/* Contact Cards */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
@@ -115,7 +114,6 @@ export default function ContactSection({ darkMode }) {
               })}
             </div>
 
-            {/* Social Links */}
             <div>
               <h4 className={`text-lg font-bold mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Connect on Social Media
@@ -130,7 +128,7 @@ export default function ContactSection({ darkMode }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className={`w-12 h-12 rounded-full ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'} flex items-center justify-center ${darkMode ? 'text-gray-400 hover:text-yellow-400' : 'text-gray-600 hover:text-yellow-400'} transition-all duration-300 hover:scale-110`}
+                      className={`w-12 h-12 rounded-full ${darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-gray-200'} flex items-center justify-center ${darkMode ? 'text-gray-400 hover:text-[#D4AF37]' : 'text-gray-600 hover:text-[#D4AF37]'} transition-all duration-300 hover:scale-110`}
                     >
                       <Icon size={20} />
                     </a>
@@ -140,14 +138,12 @@ export default function ContactSection({ darkMode }) {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className={`p-8 rounded-2xl ${darkMode ? 'bg-gray-800/50' : 'bg-white'} backdrop-blur-sm border ${darkMode ? 'border-gray-700' : 'border-gray-200'} shadow-xl`}>
             <h3 className={`text-2xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               Send a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Name Input */}
               <div>
                 <label className={`block text-sm font-semibold mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   Your Name *
@@ -163,7 +159,6 @@ export default function ContactSection({ darkMode }) {
                 />
               </div>
 
-              {/* Email Input */}
               <div>
                 <label className={`block text-sm font-semibold mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   Your Email *
@@ -179,7 +174,6 @@ export default function ContactSection({ darkMode }) {
                 />
               </div>
 
-              {/* Subject Input */}
               <div>
                 <label className={`block text-sm font-semibold mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   Subject *
@@ -195,7 +189,6 @@ export default function ContactSection({ darkMode }) {
                 />
               </div>
 
-              {/* Message Textarea */}
               <div>
                 <label className={`block text-sm font-semibold mb-2 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                   Your Message *
@@ -211,11 +204,10 @@ export default function ContactSection({ darkMode }) {
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={formStatus === 'sending'}
-                className={`w-full flex items-center justify-center gap-2 px-8 py-4 bg-yellow-400 text-gray-900 font-bold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed ${formStatus === 'sending' ? 'scale-95' : 'hover:scale-105'}`}
+                className={`w-full flex items-center justify-center gap-2 px-8 py-4 bg-[#D4AF37] text-gray-900 font-bold rounded-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed ${formStatus === 'sending' ? 'scale-95' : 'hover:scale-105'}`}
               >
                 {formStatus === 'sending' ? (
                   <>
@@ -234,7 +226,6 @@ export default function ContactSection({ darkMode }) {
                 )}
               </button>
 
-              {/* Success Message */}
               {formStatus === 'success' && (
                 <div className="p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-500 text-center font-semibold animate-fadeIn">
                   Thank you! I&apos;ll get back to you soon.
