@@ -44,9 +44,9 @@ export default function ProjectsSection({ darkMode }) {
   const categories = [
     { id: 'all', label: 'All Projects' },
     { id: 'web', label: 'Web Apps' },
-    { id: 'mobile', label: 'Mobile Apps' },
-    { id: 'ai', label: 'AI/ML' },
-    { id: 'opensource', label: 'Open Source' },
+    // { id: 'mobile', label: 'Mobile Apps' },
+    // { id: 'ai', label: 'AI/ML' },
+    // { id: 'opensource', label: 'Open Source' },
   ];
 
   const filteredProjects = filter === 'all' 
