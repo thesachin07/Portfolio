@@ -1,5 +1,4 @@
 'use client';
-
 import { BookOpen, MessageCircle } from 'lucide-react';
 
 export default function HeroSection({ darkMode }) {
@@ -14,7 +13,6 @@ export default function HeroSection({ darkMode }) {
             <span>Hello, my name is</span>
           </div>
 
-          {/* Name with Shimmer Effect */}
           <h1 className="text-6xl md:text-8xl font-bold flex flex-col items-center tracking-tighter font-display">
             <span className="text-transparent bg-gradient-to-r from-[#eab308] via-white to-[#eab308] shimmer-effect animate-shimmer">
               Sachin 
@@ -24,7 +22,6 @@ export default function HeroSection({ darkMode }) {
             </span>
           </h1>
 
-          {/* Description */}
           <div className={`max-w-4xl mx-auto space-y-4 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} animate-fadeIn`} style={{ animationDelay: '0.3s' }}>
             <p>
               <span className="text-yellow-400 font-semibold">Frontend Software Engineer</span> with{' '}
@@ -36,11 +33,7 @@ export default function HeroSection({ darkMode }) {
               </span>
               {', '}
               <span className="inline-block px-3 py-1 bg-yellow-400/10 border border-yellow-400/30 rounded-md text-yellow-400 font-medium">
-                React.js & Node.js Expert
-              </span>
-              {', and '}
-              <span className="inline-block px-3 py-1 bg-yellow-400/10 border border-yellow-400/30 rounded-md text-yellow-400 font-medium">
-                Open Source Contributor
+                React.js & Node.js 
               </span>
             </p>
             <p className="leading-relaxed">
@@ -53,7 +46,6 @@ export default function HeroSection({ darkMode }) {
             </p>
           </div>
 
-          {/* CTA Buttons */}
           <div className="flex items-center justify-center gap-4 pt-8 animate-fadeIn" style={{ animationDelay: '0.5s' }}>
             <a
               href="#projects"
