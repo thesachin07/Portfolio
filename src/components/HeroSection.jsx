@@ -25,7 +25,7 @@ export default function HeroSection({ darkMode }) {
           <div className={`max-w-4xl mx-auto space-y-4 text-lg ${darkMode ? 'text-gray-300' : 'text-gray-600'} animate-fadeIn`} style={{ animationDelay: '0.3s' }}>
             <p>
               <span className="text-yellow-400 font-semibold">Frontend Software Engineer</span> with{' '}
-              <span className="text-yellow-400 font-semibold">1+ year experience</span>
+              <span className="text-yellow-400 font-semibold">1 year experience</span>
             </p>
             <p>
               <span className="inline-block px-3 py-1 bg-yellow-400/10 border border-yellow-400/30 rounded-md text-yellow-400 font-medium">
@@ -42,7 +42,7 @@ export default function HeroSection({ darkMode }) {
               <span className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>Node.js</span>,{' '}
               <span className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>JavaScript</span>, and{' '}
               <span className={`font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>cloud platforms</span>. 
-              Specializing in enterprise systems, startup MVPs, and high-performance solutions that drive measurable business growth.
+              {/* Specializing in enterprise systems, startup MVPs, and high-performance solutions that drive measurable business growth. */}
             </p>
           </div>
 
