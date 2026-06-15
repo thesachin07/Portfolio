@@ -1,6 +1,17 @@
 'use client';
+import { useState, useEffect } from 'react';
 
 export default function BackgroundEffects() {
+  const [mounted, setMounted] = useState(false);
+
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+
+  if (!mounted) return null;
+
   return (
     <div className="fixed inset-0 pointer-events-none">
       {[...Array(50)].map((_, i) => (
