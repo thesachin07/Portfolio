@@ -170,7 +170,7 @@ export default function ContactSection({ darkMode }) {
                   onChange={handleChange}
                   required
                   className={`w-full px-4 py-3 rounded-lg ${darkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-all`}
-                  placeholder="name@example.com"
+                  placeholder="Enter Your mail"
                 />
               </div>
 
