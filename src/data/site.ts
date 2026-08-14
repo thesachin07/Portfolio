@@ -38,42 +38,17 @@ export const projects: Project[] = [
   {
     slug: 'e-commerce-platform',
     title: 'E-Commerce Platform',
-    summary: 'A full-stack storefront with inventory management and an admin dashboard.',
+    summary: 'A full-stack storefront with inventory management and an admin dashboardFull-stack MERN e-commerce platform with authentication, product management, cart, and orders.',
     description:
       'A full-stack e-commerce solution covering product catalog, checkout flow, inventory management, and an admin dashboard for managing orders and stock.',
-    image: '/projects/Img1.jpeg',
+    image: '/projects/img2.png',
     role: 'Full stack developer',
-    stack: ['React', 'Next.js', 'Supabase', 'Cloudinary'],
+    stack: ['React', 'Express', 'Node.js', 'MongoDB', 'Cloudinary'],
     category: 'web',
-    github: 'https://github.com/thesachin07/S-H-E-commerce',
-    demo: 'https://stello-rho.vercel.app/',
+    github: 'https://github.com/thesachin07/Snitch',
+    demo: 'https://snitch-ashen.vercel.app/',
   },
-  {
-    slug: 'eloquent-web-architecture',
-    title: 'Eloquent Web Architecture',
-    summary: 'A reading-optimized UI system built for scalable, pixel-perfect responsiveness.',
-    description:
-      'A high-fidelity UI exploration focused on reading-optimized layouts, scalable CSS architecture, and pixel-perfect responsiveness across breakpoints.',
-    image: '/projects/Img2.jpeg',
-    role: 'Frontend developer',
-    stack: ['Next.js', 'JavaScript', 'Tailwind CSS', 'Responsive Design'],
-    category: 'web',
-    github: 'https://github.com/thesachin07/UI-design',
-    demo: 'https://test-ui-c1a2.vercel.app/',
-  },
-  {
-    slug: 'quiz-web-app',
-    title: 'Quiz Web App',
-    summary: 'An interactive quiz app with real-time scoring and performance analytics.',
-    description:
-      'An interactive quiz web application with real-time scoring, timed questions, and analytics on performance across attempts.',
-    image: '/projects/Img3.jpeg',
-    role: 'Frontend developer',
-    stack: ['React', 'JavaScript', 'Tailwind CSS', 'API Integration'],
-    category: 'web',
-    github: 'https://github.com/thesachin07/quiz',
-    demo: 'https://quiz-git-main-sachins-projects-1991415b.vercel.app/',
-  },
+
   {
     slug: 'dealforge',
     title: 'DealForge',
@@ -87,6 +62,35 @@ export const projects: Project[] = [
     github: 'https://github.com/thesachin07/dealforge',
     demo: 'https://dealforgein.vercel.app/',
   },
+ 
+  {
+    slug: 'e-commerce-platform',
+    title: 'E-Commerce Platform',
+    summary: 'A full-stack storefront with inventory management and an admin dashboard.',
+    description:
+      'A full-stack e-commerce solution covering product catalog, checkout flow, inventory management, and an admin dashboard for managing orders and stock.',
+    image: '/projects/Img1.jpeg',
+    role: 'Full stack developer',
+    stack: ['React', 'Next.js', 'Supabase', 'Cloudinary'],
+    category: 'web',
+    github: 'https://github.com/thesachin07/S-H-E-commerce',
+    demo: 'https://stello-rho.vercel.app/',
+  },
+ 
+  {
+    slug: 'quiz-web-app',
+    title: 'Quiz Web App',
+    summary: 'An interactive quiz app with real-time scoring and performance analytics.',
+    description:
+      'An interactive quiz web application with real-time scoring, timed questions, and analytics on performance across attempts.',
+    image: '/projects/Img3.jpeg',
+    role: 'Frontend developer',
+    stack: ['React', 'JavaScript', 'Tailwind CSS', 'API Integration'],
+    category: 'web',
+    github: 'https://github.com/thesachin07/quiz',
+    demo: 'https://quiz-git-main-sachins-projects-1991415b.vercel.app/',
+  },
+  
 ];
 
 export type TimelineItem = {
