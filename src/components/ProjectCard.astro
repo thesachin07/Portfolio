@@ -1,0 +1,43 @@
+---
+import type { Project } from '../data/site';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="card overflow-hidden group flex flex-col">
+  <div class="aspect-[16/10] overflow-hidden bg-[var(--color-bg-raised)]">
+    <img
+      src={project.image}
+      alt={project.title}
+      loading="lazy"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  </div>
+
+  <div class="p-6 flex flex-col flex-1">
+    <p class="eyebrow mb-2">{project.role}</p>
+    <h3 class="text-xl font-semibold text-[var(--color-ink)] mb-2">{project.title}</h3>
+    <p class="text-sm text-[var(--color-ink-muted)] leading-relaxed mb-4">{project.summary}</p>
+
+    <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+      {project.stack.map((tag) => (
+        <span class="px-2.5 py-1 text-xs rounded-full bg-[var(--color-bg-raised)] text-[var(--color-ink-muted)] border border-[var(--color-border-soft)]">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-5 text-sm font-medium">
+      <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-[var(--color-ink-muted)] hover:text-[var(--color-ink)]">
+        Code
+      </a>
+      <a href={project.demo} target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+        Live demo &rarr;
+      </a>
+    </div>
+  </div>
+</article>

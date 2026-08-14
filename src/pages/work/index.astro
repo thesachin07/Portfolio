@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { site, projects } from '../../data/site';
+---
+
+<Layout title={`Work - ${site.name}`} description="Selected projects by Sachin Kumar.">
+  <section class="content-wrap pt-20 pb-10">
+    <p class="eyebrow mb-3">Work</p>
+    <h1 class="text-4xl sm:text-5xl font-semibold text-[var(--color-ink)] max-w-2xl">
+      Things I've built.
+    </h1>
+    <p class="mt-5 max-w-2xl text-lg text-[var(--color-ink-muted)] leading-relaxed">
+      Frontend-heavy projects with real backends behind them &mdash; each one shipped, deployed,
+      and used, not just prototyped.
+    </p>
+  </section>
+
+  <section class="content-wrap pb-28">
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</Layout>

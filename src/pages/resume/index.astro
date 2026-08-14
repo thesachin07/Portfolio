@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { site, skills, timeline } from '../../data/site';
+---
+
+<Layout title={`Resume - ${site.name}`} description="Sachin Kumar's experience, skills, and education.">
+  <section class="content-wrap pt-20 pb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+    <div>
+      <p class="eyebrow mb-3">Resume</p>
+      <h1 class="text-4xl sm:text-6xl font-bold text-[var(--color-ink)] max-w-xl">
+        {site.role}
+      </h1>
+      <p class="mt-4 max-w-xl text-[var(--color-ink-muted)] leading-relaxed">{site.intro}</p>
+    </div>
+    <a
+      href={site.resumeFile}
+      download
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-[var(--color-accent)] text-[var(--color-bg)] font-semibold hover:bg-[var(--color-accent-hover)] transition-colors whitespace-nowrap"
+    >
+      Download PDF
+    </a>
+  </section>
+
+  <!-- Experience -->
+  <section class="content-wrap pb-20">
+    <p class="eyebrow mb-3">Experience &amp; Education</p>
+    <div class="mt-8 space-y-6">
+      {timeline.map((item) => (
+        <div class="card p-6 sm:p-7 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+          <div>
+            <h3 class="font-semibold text-[var(--color-ink)]">{item.title}</h3>
+            <p class="text-sm text-[var(--color-accent)] mt-1">{item.org}</p>
+            <p class="text-sm text-[var(--color-ink-muted)] mt-2 leading-relaxed max-w-xl">{item.description}</p>
+          </div>
+          <p class="text-sm text-[var(--color-ink-muted)] whitespace-nowrap font-medium">{item.period}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="content-wrap pb-20">
+    <p class="eyebrow mb-3">Technical Skills</p>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {skills.map((group) => (
+        <div class="card p-6">
+          <h3 class="font-semibold text-[var(--color-accent)] mb-4">{group.category}</h3>
+          <ul class="space-y-2 text-sm text-[var(--color-ink-muted)]">
+            {group.items.map((item) => (
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Embedded preview -->
+  <section class="content-wrap pb-28">
+    <p class="eyebrow mb-3">Full Resume</p>
+    <div class="mt-6 card overflow-hidden">
+      <iframe src={site.resumeFile} class="w-full h-[80vh]" title="Sachin Kumar resume PDF"></iframe>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,104 @@
+---
+import { site, nav } from '../data/site';
+const year = new Date().getFullYear();
+
+const links = nav.filter((item) => item.href !== '/');
+
+const social = [
+  { href: site.github, label: 'GitHub' },
+  { href: site.linkedin, label: 'LinkedIn' },
+  { href: `mailto:${site.email}`, label: 'Email' },
+  { href: site.twitter, label: 'Twitter' },
+];
+---
+
+<footer class="site-footer">
+  <div>
+    <p class="site-footer__eyebrow">{site.name}</p>
+    <h2>Frontend engineer for fast, dependable interfaces.</h2>
+    <p>Built with Astro, TypeScript, and Tailwind &mdash; kept simple on purpose.</p>
+  </div>
+
+  <nav aria-label="Footer navigation">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+
+  <div class="site-footer__bottom">
+    <span>&copy; {year} {site.name}.</span>
+    <div>
+      {social.map((link) => (
+        <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+      ))}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding-block: clamp(3rem, 8vw, 5rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-footer__eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .site-footer h2 {
+    max-width: 16ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: 3.25rem;
+    line-height: 1.05;
+  }
+
+  .site-footer p {
+    max-width: 40rem;
+    color: var(--color-ink-muted);
+    line-height: 1.7;
+  }
+
+  .site-footer nav,
+  .site-footer__bottom,
+  .site-footer__bottom div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+
+  .site-footer nav {
+    margin-top: 2rem;
+  }
+
+  .site-footer a {
+    color: var(--color-ink-muted);
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 150ms ease, transform 150ms ease;
+  }
+
+  .site-footer a:hover {
+    color: var(--color-accent);
+    transform: translateX(2px);
+  }
+
+  .site-footer__bottom {
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+  }
+
+  @media (max-width: 720px) {
+    .site-footer h2 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
