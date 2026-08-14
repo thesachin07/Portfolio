@@ -98,25 +98,66 @@ export type TimelineItem = {
   title: string;
   org: string;
   period: string;
-  description: string;
+  problem?: string;
+  approach?: string[];
+  outcomes?: string[];
+  Learning?: string;
+  stack?: string[];
   kind: 'work' | 'education';
 };
 
 export const timeline: TimelineItem[] = [
-  {
-    title: 'Frontend Developer',
-    org: 'Gennext IT Management & Consultancy Pvt. Ltd.',
-    period: 'March 2025 — August 2025',
-    description: 'Developed scalable web applications and collaborated across product and design.',
-    kind: 'work',
-  },
-  {
-    title: 'Frontend Developer Trainee',
-    org: 'MangosOrange Services Pvt. Ltd.',
-    period: 'Nov 2024 — March 2025',
-    description: 'Learnt and implemented frontend technologies in production-facing projects.',
-    kind: 'work',
-  },
+ {
+  title: 'Frontend Developer Internship',
+  org: 'Gennext IT Management & Consultancy Pvt. Ltd.',
+  period: 'March 2025 — August 2025',
+  problem: 'The internal dashboard was slow to load and had no reusable component system, making new features take days to ship.',
+  approach: ['Rebuilt core UI components in React with a shared design system, and lazy-loaded heavy routes to cut initial load time.'],
+  outcomes: ['Improved page load performance by ~20% and reduced development effort for new features through reusable React components.'],
+  Learning: '[Learned how much a consistent component API saves downstream — refactoring is cheaper than duplicating.]',
+    stack: [
+    'React',
+    'Next.js',
+    'JavaScript',
+    'HTML',
+    'CSS',
+    'Git',
+  ],
+  kind: 'work',
+},
+ {
+  title: 'Frontend Developer Internship',
+  org: 'MangosOrange Services Pvt. Ltd.',
+  period: 'Nov 2024 — March 2025',
+
+  problem:
+    'Needed hands-on experience building responsive and production-facing web interfaces while strengthening practical frontend development skills.',
+
+  approach: [
+    'Built and improved frontend interfaces using React, JavaScript, HTML, CSS, and modern UI practices.',
+    'Worked on responsive layouts and reusable components to improve consistency across different screen sizes.',
+    'Collaborated on frontend tasks, debugging issues and refining user-facing functionality based on project requirements.',
+  ],
+
+  outcomes: [
+    'Developed practical experience with React and modern frontend development workflows.',
+    'Improved ability to build responsive, reusable, and maintainable UI components.',
+    'Strengthened debugging, problem-solving, and understanding of real-world development practices.',
+  ],
+
+  Learning:
+    'Gained a stronger understanding of responsive design, component-based development, user experience, and writing maintainable frontend code.',
+
+  stack: [
+    'React',
+    'JavaScript',
+    'HTML',
+    'CSS',
+    'Git',
+  ],
+
+  kind: 'work',
+},
   {
     title: 'Bachelor of Technology',
     org: 'Dr. A.P.J. Abdul Kalam Technical University',

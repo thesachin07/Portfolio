@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { site, stats, projects, timeline } from '../data/site';
+import { site, stats, projects, timeline, } from '../data/site';
 
 const featured = projects.slice(0, 3);
 ---
@@ -41,7 +41,6 @@ const featured = projects.slice(0, 3);
     </div>
   </section>
 
-  <!-- Stats -->
   <section class="content-wrap pb-24">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-[var(--color-border-soft)] pt-12">
       {stats.map((s) => (
@@ -53,7 +52,7 @@ const featured = projects.slice(0, 3);
     </div>
   </section>
 
-  <!-- Selected work -->
+ 
   <section class="content-wrap pb-24">
     <p class="eyebrow mb-3">Selected Work</p>
     <h2 class="text-3xl sm:text-4xl font-semibold text-[var(--color-ink)] max-w-2xl">
@@ -76,24 +75,93 @@ const featured = projects.slice(0, 3);
 
   <!-- Experience preview -->
   <section class="content-wrap pb-24">
-    <p class="eyebrow mb-3">Experience</p>
-    <h2 class="text-3xl sm:text-4xl font-semibold text-[var(--color-ink)] max-w-2xl">
-      Where the work happened.
-    </h2>
+  <p class="eyebrow mb-3">Experience</p>
 
-    <div class="mt-12 space-y-6">
-      {timeline.map((item) => (
-        <div class="card p-6 sm:p-7 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+  <h2 class="text-3xl sm:text-4xl font-bold text-[var(--color-ink)] max-w-2xl">
+    Where the work happened.
+  </h2>
+
+  <div class="mt-12 space-y-6">
+    {timeline.map((item) => (
+      <div class="card p-6 sm:p-7">
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
           <div>
-            <h3 class="font-semibold text-[var(--color-ink)]">{item.title}</h3>
-            <p class="text-sm text-[var(--color-ink-muted)] mt-1">{item.org}</p>
-            <p class="text-sm text-[var(--color-ink-muted)] mt-2 leading-relaxed max-w-xl">{item.description}</p>
+            <h3 class="font-semibold text-[var(--color-ink)]">
+              {item.title}
+            </h3>
+
+            <p class="text-sm text-[var(--color-ink-muted)] mt-1">
+              {item.org}
+            </p>
           </div>
-          <p class="text-sm text-[var(--color-accent)] whitespace-nowrap font-medium">{item.period}</p>
+
+          <p class="text-sm text-[var(--color-accent)] whitespace-nowrap font-medium">
+            {item.period}
+          </p>
         </div>
-      ))}
-    </div>
-  </section>
+
+   
+        {item.problem && (
+          <div class="mt-6">
+            <p class="eyebrow mb-2">Problem</p>
+
+            <p class="text-sm sm:text-base text-[var(--color-ink-muted)] leading-relaxed max-w-4xl">
+              {item.problem}
+            </p>
+          </div>
+        )}
+
+      
+        {item.approach && (
+          <div class="mt-6">
+            <p class="eyebrow mb-2">Approach</p>
+
+            <ul class="space-y-2 text-sm sm:text-base text-[var(--color-ink-muted)] leading-relaxed">
+              {item.approach.map((point) => (
+                <li class="pl-5 relative">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+      
+        {item.outcomes && (
+          <div class="mt-6">
+            <p class="eyebrow mb-2">Outcomes</p>
+
+            <ul class="space-y-2 text-sm sm:text-base text-[var(--color-ink-muted)] leading-relaxed">
+              {item.outcomes.map((point) => (
+                <li class="pl-5 relative">
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Stack -->
+        {item.stack && (
+          <div class="mt-6">
+            <p class="eyebrow mb-3">Stack</p>
+
+            <div class="flex flex-wrap gap-2">
+              {item.stack.map((tech) => (
+                <span class="border border-[var(--color-border)] px-3 py-1 text-xs font-medium text-[var(--color-ink)]">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+      </div>
+    ))}
+  </div>
+</section>
 
   <!-- CTA -->
   <section class="content-wrap pb-28">
