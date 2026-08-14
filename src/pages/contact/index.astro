@@ -67,6 +67,9 @@ const socials = [
       <div class="card p-8">
         <h2 class="text-xl font-semibold text-[var(--color-ink)] mb-6">Send a message</h2>
         <form id="contact-form" class="space-y-5">
+
+<input type="hidden" name="access_key" value={site.web3formsKey} />
+<input type="checkbox" name="botcheck" class="hidden" style="display:none" />
           <div>
             <label class="block text-sm font-medium text-[var(--color-ink-muted)] mb-2" for="name">Your name</label>
             <input id="name" name="name" type="text" required
@@ -88,7 +91,7 @@ const socials = [
               class="w-full px-4 py-3 rounded-md bg-[var(--color-bg-raised)] border border-[var(--color-border)] text-[var(--color-ink)] outline-none focus:border-[var(--color-accent)] transition-colors resize-none"></textarea>
           </div>
           <button type="submit"
-            class="w-full px-6 py-3 rounded-md bg-[var(--color-accent)] text-[var(--color-bg)] font-semibold hover:bg-[var(--color-accent-hover)] transition-colors">
+            class="w-full px-6 py-3 rounded-md bg-[var(--color-accent)] text-[var(--color-bg)] font-semibold hover:bg-[var(--color-accent-hover)] transition-colors ">
             Send message
           </button>
           <p id="form-note" class="text-sm text-[var(--color-ink-faint)] hidden"></p>
@@ -98,21 +101,48 @@ const socials = [
   </section>
 </Layout>
 
-<script define:vars={{ email: site.email }}>
-  const form = document.getElementById('contact-form');
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const note = document.getElementById('form-note');
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(form);
-    const subject = encodeURIComponent(String(data.get('subject') || 'Portfolio contact'));
-    const body = encodeURIComponent(
-      `From: ${data.get('name')} (${data.get('email')})\n\n${data.get('message')}`
-    );
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    if (note) {
-      note.textContent = 'Opening your email client to send this message...';
-      note.classList.remove('hidden');
+    const formData = new FormData(form);
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+    note?.classList.add('hidden');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        form.reset();
+        if (note) {
+          note.textContent = "Thanks — I'll get back to you soon.";
+          note.classList.remove('hidden');
+        }
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch {
+      if (note) {
+        note.textContent = 'Something went wrong. Try emailing me directly instead.';
+        note.classList.remove('hidden');
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      }
     }
   });
 </script>

@@ -12,6 +12,7 @@ export const site = {
   linkedin: 'https://linkedin.com/in/thesachin07',
   twitter: 'https://twitter.com/sachin1649110',
   resumeFile: '/Sachin.resume.pdf',
+  web3formsKey: '3322108a-4598-498d-a0c9-5cfc9c49ba00', 
 };
 
 export const stats = [
